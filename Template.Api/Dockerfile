@@ -18,17 +18,8 @@ RUN dotnet publish "Template.Api.csproj" -c Release -o /app/publish \
 
 # use runtime deps image
 FROM mcr.microsoft.com/dotnet/runtime-deps:5.0-alpine AS final
-
-# create user and change ownership
-RUN adduser --disabled-password \
-  --home /app \
-  --gecos '' dotnetuser && chown -R dotnetuser /app
-
-# impersonate 
-USER dotnetuser
 WORKDIR /app
-
-# expose as 8080 as only root can use below 1024 
-EXPOSE 8080
+EXPOSE 80
 COPY --from=publish /app/publish .
-ENTRYPOINT ["./Template.Api", "--urls", "http://+:8080"]
+
+ENTRYPOINT ["./Template.Api"]

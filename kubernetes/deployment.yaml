@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: template-api
+spec:
+  selector:
+    matchLabels:
+      app: template-api
+  template:
+    metadata:
+      labels:
+        app: template-api
+    spec:
+      containers:
+      - name: template-api
+        image: template-api:0.0.1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

@@ -23,7 +23,7 @@ code .
 
 Create a Dockerfile based on my sample here:
 
-<https://github.com/fabianmagrini/dotnet-samples/tree/master/docker-aspnetcore/HelloWebApi/dockerfiles/nonroot>
+<https://github.com/fabianmagrini/dotnet-samples/blob/master/docker-aspnetcore/HelloWebApi/dockerfiles/optimise/Dockerfile>
 
 Then:
 
@@ -43,3 +43,43 @@ Scan image for vulnerabilities
 ```sh
 docker scan template-api:0.0.1
 ```
+
+## Kubernetes
+
+Enable a local kubernetes cluster using Docker Desktop. Use the Kubernetes extension in Visual Studio Code to help author the deployment and service yaml.
+
+```sh
+kubectl config get-contexts # check that the docker desktop is the current context
+kubectl apply -f deployment.yaml
+kubectl get deployments
+kubectl get pods
+kubectl logs template-api-76f94b7cbc-hw4wc # use pod name from previous command
+kubectl apply -f service.yaml
+kubectl get services
+```
+
+Test using postman when running:
+<http://localhost:8080/weatherforecast>
+
+### Cleaning up
+
+```sh
+kubectl delete services template-api
+kubectl delete deployment template-api
+```
+
+### Deploying the Dashboard UI
+
+Let's install the Dahsboard:  <https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/>
+
+```sh
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+```
+
+Accessing the Dashboard UI
+
+```sh
+kubectl proxy
+```
+
+Dashboard will be available at <http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/>.
