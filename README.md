@@ -44,6 +44,10 @@ Scan image for vulnerabilities
 docker scan template-api:0.0.1
 ```
 
+## GitHub Container Registry
+
+* <https://docs.github.com/en/packages/guides/pushing-and-pulling-docker-images>
+
 ## Kubernetes
 
 Enable a local kubernetes cluster using Docker Desktop. Use the Kubernetes extension in Visual Studio Code to help author the deployment and service yaml.
