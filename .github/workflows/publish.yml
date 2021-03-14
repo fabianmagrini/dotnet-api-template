@@ -16,4 +16,4 @@ jobs:
           registry: docker.pkg.github.com
           repository: fabianmagrini/dotnet-api-template
           tag_with_ref: true
-          dockerfile: Dockerfile
+          dockerfile: ./Template.Api/Dockerfile
