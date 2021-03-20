@@ -46,7 +46,13 @@ docker scan template-api:0.0.1
 
 ## GitHub Container Registry
 
-* <https://docs.github.com/en/packages/guides/pushing-and-pulling-docker-images>
+See <https://docs.github.com/en/packages/guides/pushing-and-pulling-docker-images> for how you can store and manage Docker images in GitHub Container Registry.
+
+### Publish Container using GitHub Actions
+
+Authenticate to the GitHub Container Registry using a personal access token (PAT). Create a new PAT with the appropriate scopes (read:packages, write:packages, delete:packages)and store the PAT as a repository secret named CR_PAT.
+
+Create a workflow using this <https://github.com/docker/build-push-action> action.
 
 ## Kubernetes
 
