@@ -93,3 +93,31 @@ kubectl proxy
 ```
 
 Dashboard will be available at <http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/>.
+
+## Helm
+
+Install <https://helm.sh/docs/intro/install/>.
+
+### Create your Helm chart
+
+```sh
+mkdir charts
+cd charts
+helm create template-api
+```
+
+Update template-api/values.yaml:
+
+* Change image.repository to template-api
+* Change image.tag to 0.0.1
+* Change service.type to LoadBalancer
+* Change service.port to 8080
+
+Update template-api/templates/deployment.yaml:
+
+* Change spec.template.spec.containers.livenessProbe.httpGet.path to /weatherforecast
+* Change spec.template.spec.containers.readinessProbe.httpGet.path to /weatherforecast
+
+```sh
+helm upgrade --install template-api . --debug
+```
