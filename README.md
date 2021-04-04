@@ -111,7 +111,7 @@ Update template-api/values.yaml:
 * Change image.repository to template-api
 * Change image.tag to 0.0.1
 * Change service.type to LoadBalancer
-* Change service.port to 8080
+* Change service.port to 9000
 
 Update template-api/templates/deployment.yaml:
 
@@ -121,3 +121,6 @@ Update template-api/templates/deployment.yaml:
 ```sh
 helm upgrade --install template-api . --debug
 ```
+
+Test using postman when running:
+<http://localhost:9000/weatherforecast>
