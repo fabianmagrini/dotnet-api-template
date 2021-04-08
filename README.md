@@ -123,7 +123,7 @@ helm create template-api
 Update template-api/values.yaml:
 
 * Change image.repository to ghcr.io/fabianmagrini/dotnet-api-template
-* Change imagePullSecrets to name: ghcr-secret. See [above](### Using a private package from your GitHub Container Registry) on creating the secret.
+* Change imagePullSecrets to name: ghcr-secret. See [above](###using-a-private-package-from-your-github-container-registry) on creating the secret.
 * Change service.type to LoadBalancer
 * Change service.port to 9000
 
