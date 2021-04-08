@@ -54,6 +54,20 @@ Authenticate to the GitHub Container Registry using a personal access token (PAT
 
 Create a workflow using this <https://github.com/docker/build-push-action> action.
 
+### Using a private package from your GitHub Container Registry
+
+Integrate with a Kubernetes cluster by creating a kubernetes secret of type docker-registry:
+
+```sh
+kubectl create secret docker-registry ghcr-secret \
+    --docker-server=ghcr.io \
+    --docker-username=$USERNAME \
+    --docker-password=$GHCR_PAT \
+    --namespace=$NAMESPACE
+```
+
+Refer to this secret in the imagePullSecrets for the container. It is scoped to the namespace.
+
 ## Kubernetes
 
 Enable a local kubernetes cluster using Docker Desktop. Use the Kubernetes extension in Visual Studio Code to help author the deployment and service yaml.
@@ -108,10 +122,14 @@ helm create template-api
 
 Update template-api/values.yaml:
 
-* Change image.repository to template-api
-* Change image.tag to 0.0.1
+* Change image.repository to ghcr.io/fabianmagrini/dotnet-api-template
+* Change imagePullSecrets to name: ghcr-secret. See [above](### Using a private package from your GitHub Container Registry) on creating the secret.
 * Change service.type to LoadBalancer
 * Change service.port to 9000
+
+Update template-api/Chart.yaml:
+
+* Change appVersion to "0.0.1
 
 Update template-api/templates/deployment.yaml:
 
