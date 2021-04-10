@@ -140,5 +140,14 @@ Update template-api/templates/deployment.yaml:
 helm upgrade --install template-api . --debug
 ```
 
+List all pods and services in all namespaces
+
+```sh
+kubectl get pods --all-namespaces
+kubectl get services --all-namespaces 
+```
+
+Note the EXTERNAL-IP for the service if there is an EXTERNAL-IP.
+
 Test using postman when running:
-<http://localhost:9000/weatherforecast>
+<http://localhost:9000/weatherforecast> or <http://EXTERNAL-IP:9000/weatherforecast> if there is an EXTERNAL-IP,
