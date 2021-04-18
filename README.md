@@ -19,6 +19,10 @@ cd Template.Api/
 code .
 ```
 
+## Health Checks
+
+See <https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-5.0>.
+
 ## Dockerfile
 
 Create a Dockerfile based on my sample here:

@@ -26,6 +26,7 @@ namespace Template.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddHealthChecks();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -49,6 +50,9 @@ namespace Template.Api
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHealthChecks("/health/startup");
+                endpoints.MapHealthChecks("/health/ready");
+                endpoints.MapHealthChecks("/health/live");
                 endpoints.MapControllers();
             });
         }
