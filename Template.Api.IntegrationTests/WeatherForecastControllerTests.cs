@@ -1,24 +1,21 @@
 
 using FluentAssertions;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
 using Template.Api;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Xunit;
 
 
 namespace Template.Api.IntegrationTests
 {
-    public class WeatherForecastControllerTests: IClassFixture<WebApplicationFactory<Api.Startup>>
+    public class WeatherForecastControllerTests: IClassFixture<WebApplicationFactory<Startup>>
     {
         readonly HttpClient _client;
 
-        public WeatherForecastControllerTests(WebApplicationFactory<Api.Startup> fixture)
+        public WeatherForecastControllerTests(WebApplicationFactory<Startup> fixture)
         {
             _client = fixture.CreateClient();
         }
