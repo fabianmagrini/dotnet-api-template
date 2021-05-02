@@ -48,6 +48,24 @@ Scan image for vulnerabilities
 docker scan template-api:0.0.1
 ```
 
+## Integration Tests
+
+Create the test project
+
+```sh
+dotnet new xunit -o Template.Api.IntegrationTests
+cd Template.Api.IntegrationTests/
+dotnet test
+```
+
+Add required packages and reference api project
+
+```sh
+dotnet add package Microsoft.AspNetCore.Mvc.Testing
+dotnet add package FluentAssertions
+dotnet add Template.Api.IntegrationTests.csproj reference ../Template.Api/Template.Api.csproj
+```
+
 ## GitHub Container Registry
 
 See <https://docs.github.com/en/packages/guides/pushing-and-pulling-docker-images> for how you can store and manage Docker images in GitHub Container Registry.
