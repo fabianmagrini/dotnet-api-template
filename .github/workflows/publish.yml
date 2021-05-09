@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'Template.Api/**'
+      - 'Template.Api.IntegrationTests/**'
 env:
   TagName: 0.0.1
 
