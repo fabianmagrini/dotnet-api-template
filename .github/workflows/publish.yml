@@ -7,6 +7,15 @@ env:
   TagName: 0.0.1
 
 jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Print info
+        run: |
+          echo User $GITHUB_ACTOR triggered build on $GITHUB_REF by $GITHUB_SHA commit.
   push_to_registry:
     name: Push Docker image to GHCR
     runs-on: ubuntu-latest
