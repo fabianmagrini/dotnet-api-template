@@ -20,7 +20,6 @@ namespace Template.Api.IntegrationTests
             _client = fixture.CreateClient();
         }
 
-        // Test
         [Fact]
         public async Task Get_Should_Retrieve_Forecast()
         {
