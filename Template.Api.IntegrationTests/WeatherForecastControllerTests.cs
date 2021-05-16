@@ -1,7 +1,6 @@
 
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Template.Api;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
