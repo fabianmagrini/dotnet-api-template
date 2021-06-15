@@ -1,6 +1,6 @@
-# Containerising an Asp.Net Core 5.0 Web Api
+# .Net 5.0 Web Api Template
 
-Containerising an Asp.Net Core 5.0 Web Api.
+A .Net 5.0 Web Api template that includes containerising the Web Api.
 
 ## Prerequisites
 
