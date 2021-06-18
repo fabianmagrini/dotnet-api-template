@@ -34,7 +34,7 @@ Then:
 ```sh
 docker build -t template-api:0.0.1 .
 docker image ls | grep template-api # to verify image is built
-docker run -it --rm -p 8080:8080 template-api:0.0.1
+docker run -it --rm -p 8080:80 template-api:0.0.1
 ```
 
 Test using postman when running:
