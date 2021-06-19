@@ -23,6 +23,18 @@ code .
 
 See <https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-5.0>.
 
+## Logging
+
+See <https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-5.0>.
+
+### Logging with Serilog
+
+See <https://github.com/serilog/serilog-aspnetcore>.
+
+```sh
+dotnet add package Serilog.AspNetCore
+```
+
 ## Dockerfile
 
 Create a Dockerfile based on my sample here:

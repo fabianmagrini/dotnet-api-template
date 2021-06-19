@@ -9,4 +9,4 @@
 [Oo]bj/
 
 # Logs
-*.log
+logs/
