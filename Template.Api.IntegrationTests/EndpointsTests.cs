@@ -17,9 +17,6 @@ namespace Template.Api.IntegrationTests
             using var client = application.CreateClient();
             var response = await client.GetAsync("/health/live");
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-    
-            //var forecast = JsonSerializer.Deserialize<WeatherForecast[]>(await response.Content.ReadAsStringAsync());
-            //forecast.Should().HaveCount(5);
         }
     }
 }
