@@ -24,7 +24,7 @@ jobs:
       - name: Build Template.Api
         run: dotnet build -c Release --no-cache /clp:NoSummary ./Template.Api/Template.Api.csproj
       - name: Test Template.Api
-        run: dotnet test -c Release --no-build ./Template.Api.IntegrationTests/Template.Api.IntegrationTests.csproj
+        run: dotnet test -c Release ./Template.Api.IntegrationTests/Template.Api.IntegrationTests.csproj
   push_to_registry:
     name: Push Docker image to GHCR
     runs-on: ubuntu-latest
