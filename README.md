@@ -1,10 +1,10 @@
-# .Net 5.0 Web Api Template
+# .Net 8.0 Web Api Template
 
-A .Net 5.0 Web Api template that includes containerising the Web Api.
+A .Net 8.0 Web Api template that includes containerising the Web Api.
 
 ## Prerequisites
 
-* .Net 5.0
+* .Net 8.0
 * Docker Desktop
 * Visual Studio Code
 * Postman
@@ -19,13 +19,28 @@ cd Template.Api/
 code .
 ```
 
+```sh
+dotnet new web -o Template.Api 
+cd Template.Api/
+code .
+
+dotnet dev-certs https --trust ## I am on macOS
+dotnet run --urls="https://localhost:7777"
+```
+
 ## Health Checks
 
-See <https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-5.0>.
+See <https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-8.0>.
+
+Install the Health Checks NuGet Package
+
+```sh
+dotnet add package Microsoft.Extensions.Diagnostics.HealthChecks
+```
 
 ## Logging
 
-See <https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-5.0>.
+See <https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-8.0>.
 
 ### Logging with Serilog
 
@@ -37,7 +52,11 @@ dotnet add package Serilog.AspNetCore
 
 ## Dockerfile
 
-Create a Dockerfile based on my sample here:
+Create a Dockerfile based on sample here:
+
+<https://github.com/dotnet/dotnet-docker/tree/main/samples/aspnetapp>
+
+My Docker sample for .Net 5 is here:
 
 <https://github.com/fabianmagrini/dotnet-samples/blob/master/docker-aspnetcore/HelloWebApi/dockerfiles/optimise/Dockerfile>
 
@@ -46,11 +65,11 @@ Then:
 ```sh
 docker build -t template-api:0.0.1 .
 docker image ls | grep template-api # to verify image is built
-docker run -it --rm -p 8080:80 template-api:0.0.1
+docker run -it --rm -p 8000:8080 template-api:0.0.1
 ```
 
 Test using postman when running:
-<http://localhost:8080/weatherforecast>
+<http://localhost:8000/>
 
 Ctrl-c to exit.
 
