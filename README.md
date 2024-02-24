@@ -19,6 +19,8 @@ cd Template.Api/
 code .
 ```
 
+with HTTPS
+
 ```sh
 dotnet new web -o Template.Api 
 cd Template.Api/
@@ -136,7 +138,7 @@ kubectl get services
 ```
 
 Test using postman when running:
-<http://localhost:8080/weatherforecast>
+<http://localhost:8080/>
 
 ### Cleaning up
 
@@ -186,8 +188,8 @@ Update template-api/Chart.yaml:
 
 Update template-api/templates/deployment.yaml:
 
-* Change spec.template.spec.containers.livenessProbe.httpGet.path to /weatherforecast
-* Change spec.template.spec.containers.readinessProbe.httpGet.path to /weatherforecast
+* Change spec.template.spec.containers.livenessProbe.httpGet.path to /
+* Change spec.template.spec.containers.readinessProbe.httpGet.path to /
 
 ```sh
 helm upgrade --install template-api . --debug
@@ -203,4 +205,4 @@ kubectl get services --all-namespaces
 Note the EXTERNAL-IP for the service if there is an EXTERNAL-IP.
 
 Test using postman when running:
-<http://localhost:9000/weatherforecast> or <http://EXTERNAL-IP:9000/weatherforecast> if there is an EXTERNAL-IP,
+<http://localhost:9000/> or <http://EXTERNAL-IP:9000/> if there is an EXTERNAL-IP,
