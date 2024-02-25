@@ -48,7 +48,7 @@ ingress:
   hosts:
     - host: template-api.local
       paths:
-      - path: /weatherforecast
+      - path: /
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
