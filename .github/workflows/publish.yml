@@ -6,6 +6,7 @@ on:
       - 'Template.Api.IntegrationTests/**'
 env:
   TagName: 0.0.1
+  DOTNET_VERSION: '8.0.x'
 
 jobs:
   build-and-test:
@@ -20,7 +21,7 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: ${{ env.DOTNET_VERSION }}
       - name: Build Template.Api
         run: dotnet build -c Release --no-cache /clp:NoSummary ./Template.Api/Template.Api.csproj
       - name: Test Template.Api
