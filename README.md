@@ -52,6 +52,14 @@ See <https://github.com/serilog/serilog-aspnetcore>.
 dotnet add package Serilog.AspNetCore
 ```
 
+## Feature Flags
+
+See <https://learn.microsoft.com/en-us/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core>
+
+```sh
+dotnet add package Microsoft.FeatureManagement
+```
+
 ## Dockerfile
 
 Create a Dockerfile based on sample here:
