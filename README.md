@@ -177,19 +177,16 @@ helm create template-api
 
 Update template-api/values.yaml:
 
-* Change image.repository to ghcr.io/fabianmagrini/dotnet-api-template
+* Change image.repository to template-api:0.0.1 or ghcr.io/fabianmagrini/dotnet-api-template
 * Change imagePullSecrets to name: ghcr-secret. See [above](###using-a-private-package-from-your-github-container-registry) on creating the secret.
 * Change service.type to LoadBalancer
-* Change service.port to 9000
+* Change service.port to 8080
+* Change spec.template.spec.containers.livenessProbe.httpGet.path to /
+* Change spec.template.spec.containers.readinessProbe.httpGet.path to /
 
 Update template-api/Chart.yaml:
 
 * Change appVersion to "0.0.1
-
-Update template-api/templates/deployment.yaml:
-
-* Change spec.template.spec.containers.livenessProbe.httpGet.path to /
-* Change spec.template.spec.containers.readinessProbe.httpGet.path to /
 
 ```sh
 helm upgrade --install template-api . --debug
@@ -206,3 +203,9 @@ Note the EXTERNAL-IP for the service if there is an EXTERNAL-IP.
 
 Test using postman when running:
 <http://localhost:9000/> or <http://EXTERNAL-IP:9000/> if there is an EXTERNAL-IP,
+
+Cleaning up
+
+```sh
+helm uninstall template-api
+```
