@@ -1,19 +1,23 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.FeatureManagement;
 
 public static class RainbowsEndpoints
 {
     public static void RegisterRainbowsEndpoints(this WebApplication app)
     {
+        app.MapGet("/rainbow", GetAllRainbows);
+    }
+
+    public static async Task<Results<Ok<RainbowForecast[]>, NotFound>> GetAllRainbows(IFeatureManager manager)
+    {
         var colours = new[]
         {
             "Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"
         };
-
-        app.MapGet("/rainbow", async (IFeatureManager manager) =>
-        {
-            if (!await manager.IsEnabledAsync("rainbow"))
+        
+        if (!await manager.IsEnabledAsync("rainbow"))
             {
-                return Results.NotFound();
+                return TypedResults.NotFound();
             }
         
             var forecast = Enumerable.Range(1, 5).Select(index =>
@@ -24,11 +28,11 @@ public static class RainbowsEndpoints
                 ))
                 .ToArray();
         
-            return Results.Ok(forecast);
-        });
+            return TypedResults.Ok(forecast);
     }
 
-    record RainbowForecast(DateTime Date, string? Colour)
-    {
-    }
+
+}
+public record RainbowForecast(DateTime Date, string? Colour)
+{
 }
