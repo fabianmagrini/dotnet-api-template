@@ -17,7 +17,7 @@ RUN dotnet publish "Template.Api.csproj" -c Release -o /app/publish \
 # final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS final
 WORKDIR /app
-EXPOSE 80
+EXPOSE 8080
 COPY --from=publish /app/publish .
 
 ENTRYPOINT ["./Template.Api"]
