@@ -104,4 +104,4 @@ tolerations: []
 affinity: {}
 
 # Container specific configuration 
-containerPort: 80
+containerPort: 8080
