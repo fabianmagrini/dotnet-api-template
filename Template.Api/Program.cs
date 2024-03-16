@@ -27,5 +27,6 @@ app.Logger.LogInformation($"Application Version: {version}");
 app.MapGet("/", () => $"Application Version: {version}");
 		
 app.RegisterRainbowsEndpoints();
+app.RegisterEnvironmentEndpoints();
 
 app.Run();
