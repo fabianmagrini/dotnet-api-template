@@ -1,1 +1,1 @@
-# Update this file to trigger GitHub ACtions workflow
+# Update this file to trigger GitHub Actions workflow
