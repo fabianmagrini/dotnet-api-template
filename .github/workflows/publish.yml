@@ -55,8 +55,8 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
 
-      # Push to Github Container Registry
-      - name: Push to Github Container Registry
+      # Push to Docker Hub and Github Container Registry
+      - name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: ./Template.Api/
